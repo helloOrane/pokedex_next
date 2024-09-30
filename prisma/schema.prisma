@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../pokemon.db"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model pokemon {
+  name                          String?
+  pokedex_number                Int @id
+  abilities                     String?
+  typing                        String?
+  hp                            Int?
+  attack                        Int?
+  defense                       Int?
+  special_attack                Int?
+  special_defense               Int?
+  speed                         Int?
+  height                        Int?
+  weight                        Int?
+  genus                         String?
+  gen_introduced                Int?
+  female_rate                   Float?
+  genderless                    Int?
+  baby_pokemon                  Int?
+  legendary                     Int?
+  mythical                      Int?
+  is_default                    Int?
+  forms_switchable              Int?
+  base_experience               Int?
+  capture_rate                  Int?
+  egg_groups                    String?
+  egg_cycles                    Float?
+  base_happiness                Int?
+  can_evolve                    Int?
+  evolves_from                  String?
+  primary_color                 String?
+  shape                         String?
+  number_pokemon_with_typing    Float?
+  normal_attack_effectiveness   Float?
+  fire_attack_effectiveness     Float?
+  water_attack_effectiveness    Float?
+  electric_attack_effectiveness Float?
+  grass_attack_effectiveness    Float?
+  ice_attack_effectiveness      Float?
+  fighting_attack_effectiveness Float?
+  poison_attack_effectiveness   Float?
+  ground_attack_effectiveness   Float?
+  fly_attack_effectiveness      Float?
+  psychic_attack_effectiveness  Float?
+  bug_attack_effectiveness      Float?
+  rock_attack_effectiveness     Float?
+  ghost_attack_effectiveness    Float?
+  dragon_attack_effectiveness   Float?
+  dark_attack_effectiveness     Float?
+  steel_attack_effectiveness    Float?
+  fairy_attack_effectiveness    Float?
+  url                           String?
+}
