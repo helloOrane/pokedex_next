@@ -48,7 +48,6 @@ CREATE TABLE "pokemon" (
     "dragon_attack_effectiveness" REAL,
     "dark_attack_effectiveness" REAL,
     "steel_attack_effectiveness" REAL,
-    "fairy_attack_effectiveness" REAL,
-    "url" TEXT
+    "fairy_attack_effectiveness" REAL
 );
 

@@ -58,5 +58,5 @@ model pokemon {
   dark_attack_effectiveness     Float?
   steel_attack_effectiveness    Float?
   fairy_attack_effectiveness    Float?
-  url                           String?
+
 }
