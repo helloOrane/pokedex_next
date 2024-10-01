@@ -5,6 +5,7 @@ export type Pokemon = {
 
 export type PokemonTable = {
     id: number;
+    pokedex_number: number;
     name: string;
     types: string[];
     status:'uncaptured' | 'captured' | 'team';

@@ -9,4 +9,4 @@ df = pd.read_csv(path)
 
 #generate sql lite database
 conn = sqlite3.connect('pokemon.db')
-df.to_sql('pokemon', conn, if_exists='replace', index=False)
+df.to_sql('pokemon', conn, if_exists='replace', index=True, index_label='id')

@@ -34,37 +34,37 @@ export async function fetchFilteredPokemons(query: string, page: number = 1) {
     });
   }
 
-  if(query !=='' && isNaN(parseInt(query))){
-    whereClause.OR.push({
-      name: {
-        contains: query
-      }
-    });
-  }
-
   const results = await prisma.pokemon.findMany({
     skip: offset,
     take: ITEMS_PER_PAGE,
     where: whereClause
   });
 
-  console.log('whereClause', whereClause, whereClause.OR);
+  const count = await prisma.pokemon.count({
+    where: whereClause
+  });
+  const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
 
   const responseTable: PokemonTable[] = results.map((result) => {
     return {
-      id: result.pokedex_number,
+      id: result.id,
+      pokedex_number: result.pokedex_number || 0,
       name: result.name || 'Unknown',
       types: result.typing?.split('~') || [],
       status: 'uncaptured', // TODO: Add status table
     };
   });
 
-  return responseTable;
+  return {pokemons: responseTable, count: totalPages};
 }
 
+
+export async function fetchPokemonCount(query:string){
+  await prisma.pokemon.count({})
+}
 export async function fetchPokemonById(id:number){
    return await prisma.pokemon.findUnique({
-      where:{pokedex_number: id}
+      where:{id: id}
    })
 }
 

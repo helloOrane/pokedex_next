@@ -1,7 +1,8 @@
 -- CreateTable
 CREATE TABLE "pokemon" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT,
-    "pokedex_number" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "pokedex_number" INTEGER,
     "abilities" TEXT,
     "typing" TEXT,
     "hp" INTEGER,

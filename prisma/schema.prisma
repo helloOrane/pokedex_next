@@ -9,8 +9,9 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model pokemon {
+  id                            Int @id
   name                          String?
-  pokedex_number                Int @id
+  pokedex_number                Int?
   abilities                     String?
   typing                        String?
   hp                            Int?
@@ -58,5 +59,4 @@ model pokemon {
   dark_attack_effectiveness     Float?
   steel_attack_effectiveness    Float?
   fairy_attack_effectiveness    Float?
-
 }
