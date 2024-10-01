@@ -11,6 +11,11 @@ const nextConfig = {
             hostname: 'raw.githubusercontent.com',
             pathname: '/PokeMiners/pogo_assets/master/Images/Pokemon/**',
           },
+          {
+            protocol: 'https',
+            hostname: 'github.com',
+            pathname: '/PokeMiners/pogo_assets/blob/master/Images/Types/**',
+          },
       ],
     },
   };

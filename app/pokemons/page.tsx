@@ -25,7 +25,6 @@ export default async function Page({searchParams}:{searchParams?:{
             <div className="mt-5 flex w-full justify-center">
                 <Pagination totalPages={count} />
             </div>
-            {/* <Pagination totalPages={count} /> */}
         </div>
     );
 }

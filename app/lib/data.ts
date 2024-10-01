@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { PokemonTable } from './types'
+import { pokemon } from '@prisma/client';
 
 const prisma = new PrismaClient()
 
@@ -59,13 +60,37 @@ export async function fetchFilteredPokemons(query: string, page: number = 1) {
 }
 
 
-export async function fetchPokemonCount(query:string){
-  await prisma.pokemon.count({})
+
+export async function fetchEvolutions(name:string, evolutions: pokemon[] = []){
+  
+  const response = await prisma.pokemon.findFirst({
+    where:{
+      evolves_from: name
+    }
+  })
+
+  if (response) {
+    evolutions.push(response);
+    if (response.can_evolve) {
+      await fetchEvolutions(response.name, evolutions);
+    }
+  }
+
+  return evolutions;
 }
+
 export async function fetchPokemonById(id:number){
-   return await prisma.pokemon.findUnique({
-      where:{id: id}
-   })
+  try {
+    const pokemon = await prisma.pokemon.findFirst({
+      where: {
+        pokedex_number: id
+      }
+    });
+    return pokemon;
+  } catch (error) {
+      console.error(error);
+      throw new Error('Pokemon not found');
+  }
 }
 
 
