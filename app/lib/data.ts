@@ -63,16 +63,18 @@ export async function fetchFilteredPokemons(query: string, page: number = 1) {
 
 export async function fetchEvolutions(name:string, evolutions: pokemon[] = []){
   
-  const response = await prisma.pokemon.findFirst({
-    where:{
+  const responses = await prisma.pokemon.findMany({
+    where: {
       evolves_from: name
     }
-  })
+  });
 
-  if (response) {
-    evolutions.push(response);
-    if (response.can_evolve) {
-      await fetchEvolutions(response.name, evolutions);
+  if (responses.length > 0) {
+    for (const response of responses) {
+      evolutions.push(response);
+      if (Boolean(response.can_evolve)) {
+        await fetchEvolutions(response.name, evolutions);
+      }
     }
   }
 

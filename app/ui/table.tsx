@@ -12,7 +12,7 @@ export default function Table(props: IProps) {
           <thead className="rounded-lg text-left text-sm font-bold">
             <tr>
               <th scope="col" className="px-4 py-5 font-bold sm:pl-6">
-                Id
+                Number
               </th>
               <th scope="col" className="px-4 py-5 font-bold sm:pl-6">
                 Image
@@ -42,7 +42,7 @@ export default function Table(props: IProps) {
               >
                 <td className="whitespace-nowrap py-3 pl-6 pr-3">
                   <div className="flex items-center gap-3">
-                    <p>{pokemon.id}</p>
+                    <p>{pokemon.pokedex_number}</p>
                   </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
@@ -60,7 +60,7 @@ export default function Table(props: IProps) {
                   {pokemon.name}
                 </td>
                 <td className="whitespace-nowrap px-3 py-3">
-                  {pokemon.types.map((type:string) => (<p key={type}>{type}</p>))}
+                  {pokemon.typing.map((type:string) => (<p key={type}>{type}</p>))}
                 </td>
                 <td className="whitespace-nowrap px-3 py-3">
                   <p>{pokemon.status}</p>
