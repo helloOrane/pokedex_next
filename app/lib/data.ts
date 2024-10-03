@@ -51,7 +51,8 @@ export async function fetchFilteredPokemons(query: string, page: number = 1) {
       id: result.id,
       pokedex_number: result.pokedex_number || 0,
       name: result.name || 'Unknown',
-      types: result.typing?.split('~') || [],
+      typing: result.typing?.split('~') || [],
+      genus: result.genus || 'Unknown',
       status: 'uncaptured', // TODO: Add status table
     };
   });

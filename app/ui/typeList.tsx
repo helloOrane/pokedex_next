@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { pokemon } from "@prisma/client";
 import Image from "next/image";
+import TypeIcon from "./typeIcon";
 
 type IProps ={
     pokemon: pokemon;
@@ -15,20 +16,11 @@ export default function TypeList(props:IProps){
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="uppercase font-bold text-xl">Types </CardTitle>
+                <CardTitle className="uppercase font-bold text-lg">Types </CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-3 gap-4 mb-4">
+            <CardContent className="flex gap-2 mb-4">
                 {types.map((type: string, index) => (
-                <div className="w-12 h-12" key={type}>
-                    <Image
-                        src={typeImgUrls[index]}
-                        alt={type}
-                        width={48}
-                        height={48}
-                        className="h-12 w-12"
-                    />
-                    <p className="text-center">{type}</p>
-                </div>
+                    <TypeIcon type={type} key={index}/>
                 ))}
             </CardContent>
 

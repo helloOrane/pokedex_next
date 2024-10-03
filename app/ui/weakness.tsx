@@ -81,9 +81,9 @@ export default function Weakness(props:IProps){
     return(
         <Card>
             <CardHeader>
-                <CardTitle className="text-xl uppercase font-bold">Faiblesses</CardTitle>
+                <CardTitle className="text-lg uppercase font-bold">Faiblesses</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-3 gap-8 mb-4">
+            <CardContent className="flex gap-2 mb-4">
                 {weaknessList.map((weakness: string, index) => (
                     <TypeIcon key={index} type={weakness} />
                 ))}

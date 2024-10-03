@@ -13,19 +13,19 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-        <div className="grid grid-cols-2 md:grid-cols-5 md:grid-rows-2 gap-4">
-            <div className="col-span-2 md:row-span-2 md:grid-rows-2">
+        <div className="flex flex-col gap-4">
+            <div className="">
               <Suspense fallback={<p>Loading...</p>}>
                   <PokemonCard pokemon={pokemon} />
               </Suspense>
             </div>
-            <div className="col-span-2 grid grid-cols-2 md:col-span-1 md:row-span-2 md:grid md:grid-cols-1 md:gap-2">
-              <div className="col-span-1">
+            <div className="flex flex-row gap-4">
+              <div className="grow">
                 <Suspense fallback={<p>Loading...</p>}>
                     <TypeList pokemon={pokemon} />
                 </Suspense>
               </div>
-              <div className="col-span-1">
+              <div className="grow">
                 <Suspense fallback={<p>Loading...</p>}>
                   { pokemon != null && (<Weakness pokemon={pokemon} />)}           
                 </Suspense>

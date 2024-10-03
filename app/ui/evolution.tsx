@@ -13,14 +13,14 @@ export default async function Evolution(props: IProps) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="text-xl uppercase font-bold">Evolutions</CardTitle>
+                <CardTitle className="text-lg uppercase font-bold">Evolutions</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-3 gap-4">
+            <CardContent className="flex flex-wrap gap-4 justify-around">
                 {evolutions.length > 0 && evolutions.map((evolution) => {
                     return(
                     <div className="" key={evolution.id}>
                         <Link href={`/pokemons/${evolution.pokedex_number}`}>
-                            <PokemonAvatar pokemon={evolution} />
+                            <PokemonAvatar name={evolution.name} pokedex_number={evolution.pokedex_number}/>
                             <p className="text-center">{evolution.name}</p>
                         </Link>
                     </div>
