@@ -10,7 +10,6 @@ export async function fetchPokemons(){
    return await prisma.pokemon.findMany()  
 }
 
-
 export async function fetchFilteredPokemons(query: string, page: number = 1) {
   const offset = (page - 1) * ITEMS_PER_PAGE;
 
@@ -59,8 +58,6 @@ export async function fetchFilteredPokemons(query: string, page: number = 1) {
 
   return {pokemons: responseTable, count: totalPages};
 }
-
-
 
 export async function fetchEvolutions(name:string, evolutions: pokemon[] = []){
   
