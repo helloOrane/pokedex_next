@@ -6,7 +6,7 @@ type IProps = {
     datas: PokemonTable[];
 }
 export default function Table(props: IProps) {
-
+  
     return (
         <table className="hidden min-w-full text-gray-900 md:table">
           <thead className="rounded-lg text-left text-sm font-bold">
@@ -33,6 +33,7 @@ export default function Table(props: IProps) {
           </thead>
           <tbody className="bg-white">
             {props.datas.map((pokemon:PokemonTable) => {
+              console.log(pokemon);
               const imgId = pokemon.pokedex_number < 10 ? `00${pokemon.pokedex_number}` : `0${pokemon.pokedex_number}`;
               
               return (
@@ -60,7 +61,7 @@ export default function Table(props: IProps) {
                   {pokemon.name}
                 </td>
                 <td className="whitespace-nowrap px-3 py-3">
-                  {pokemon.typing.map((type:string) => (<p key={type}>{type}</p>))}
+                  {pokemon.types.map((type:string) => (<p key={type}>{type}</p>))}
                 </td>
                 <td className="whitespace-nowrap px-3 py-3">
                   <p>{pokemon.status}</p>

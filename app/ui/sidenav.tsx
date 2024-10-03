@@ -7,11 +7,14 @@ export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
+        className="mb-2 flex h-20 items-end justify-start rounded-md p-4 md:h-40 bg-cover"
         href="/"
+        style={{
+          backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFwdNI99TGFVrKplZRPoTex0X8nDPLjsEIgg&s")`,
+          }}
       >
-        <div className="w-32 text-white md:w-40">
-          {/* <AcmeLogo /> */}
+        <div className="w-36 text-white bg-slate-700/60 p-1 rounded-sm">
+          <h1 className="text-xl font-bold">Pokemon App</h1> 
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">

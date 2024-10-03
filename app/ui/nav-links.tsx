@@ -1,10 +1,5 @@
 'use client';
  
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -12,13 +7,14 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/', icon: HomeIcon },
+  { name: 'Home', href: '/', icon: '/image/home_icon.png' },
   {
     name: 'Pokemons',
     href: '/pokemons',
-    icon: DocumentDuplicateIcon,
+    // icon: DocumentDuplicateIcon,
+    icon: '/image/pokedex_icon.png',
   },
-  { name: 'Pokedex', href: '/pokedex', icon: UserGroupIcon },
+  { name: 'Pokedex', href: '/pokedex', icon: '/image/pokemon02_icon.png' },
 ];
 
 export default function NavLinks() {
@@ -39,7 +35,8 @@ export default function NavLinks() {
               },
             )}
           >
-            <LinkIcon className="w-6" />
+            {/* <LinkIcon className="w-6" /> */}
+            <img src={link.icon} alt={`${link.name} icon`} className="w-6 h-6" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
